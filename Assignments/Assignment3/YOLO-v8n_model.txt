@@ -1,0 +1,31 @@
+DetectionModel
+	model: Sequential
+		
+		[Backbone]
+			(0) Conv
+			(1) Conv
+			(2) C2f (Backbone block 1)
+			(3) Conv
+			(4) C2f (Backbone block 2)
+			(5) Conv
+			(6) C2f (Backbone block 3)
+			(7) Conv
+			(8) C2f (Backbone block 4)
+			(9) SPPF (Spatial Pyramid Pooling - Fast)
+
+		[Neck]
+			(10) Upsample
+			(11) Concat
+			(12) C2f
+			(13) Upsample
+			(14) Concat
+			(15) C2f
+			(16) Conv
+			(17) Concat
+			(18) C2f
+			(19) Conv
+			(20) Concat
+			(21) C2f
+			
+		[Head]
+			(22) Detect (Detection head: outputs class predictions and bounding boxes)
